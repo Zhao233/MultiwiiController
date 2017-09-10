@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <com.example.administrator.multiwiicontroller.ScanDevice.TimerProgressBar
+        android:id="@+id/scanProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <ListView
+        android:id="@+id/bluetoothdevices"
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:layout_weight="0.25" />
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="scan device"
+        android:layout_weight="0.05" />
+</LinearLayout>
