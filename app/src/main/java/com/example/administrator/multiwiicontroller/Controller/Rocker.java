@@ -229,6 +229,8 @@ public class Rocker extends Button {
 
     public void setWindwoManager(WindowManager manager){
         this.windowManager = manager;
+
+        layoutParams = new  WindowManager.LayoutParams();
     }
 
     @Override
@@ -342,6 +344,8 @@ public class Rocker extends Button {
             @Override
             public void run() {
                 bundle.putInt("verticalValue", setVerticalValue());
+                message.setData(bundle);
+                handler.sendMessage(message);
             }
         };
 

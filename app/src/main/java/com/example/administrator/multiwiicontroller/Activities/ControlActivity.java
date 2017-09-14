@@ -44,7 +44,7 @@ public class ControlActivity extends Activity {
 
     ProtocolSender sender;
 
-    /*//Intent serviceIntent;
+    Intent serviceIntent;
     ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -65,7 +65,7 @@ public class ControlActivity extends Activity {
         }
     };
     BlueToothService.MyBinder binder;
-    BlueToothService blueToothService;*/
+    BlueToothService blueToothService;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -81,24 +81,24 @@ public class ControlActivity extends Activity {
         border_left = (Button) findViewById(R.id.leftBorder);
         border_right = (Button) findViewById(R.id.rightBorder);
 
-        /*parameterAdjust = (Button) findViewById(R.id.adjustButton);
-        options = (Button) findViewById(R.id.option);*/
+        parameterAdjust = (Button) findViewById(R.id.adjustButton);
+        options = (Button) findViewById(R.id.option);
 
-        /*throtValue = (ProgressBar) findViewById(R.id.throtProgress);
+        throtValue = (ProgressBar) findViewById(R.id.throtProgress);
         yawValue = (ProgressBar) findViewById(R.id.yawProgress);
         rollValue = (ProgressBar) findViewById(R.id.rollProgress);
         pitchValue = (ProgressBar) findViewById(R.id.pitchProgress);
 
-        setProgressBars(throtValue, yawValue, rollValue, pitchValue);*/
+        setProgressBars(throtValue, yawValue, rollValue, pitchValue);
 
-        /*options.setOnClickListener(e -> {
+        options.setOnClickListener(e -> {
             Intent toOptions = new Intent(ControlActivity.this, ControllerOption.class);
             Bundle bundle = new Bundle();
             bundle.putBinder("blueToothBinder", binder);
             toOptions.putExtra("bundle", bundle);
 
             startActivity(toOptions);
-        });*/
+        });
 
         new Handler().postDelayed(() -> {
             WindowManager windowManager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
@@ -135,8 +135,8 @@ public class ControlActivity extends Activity {
             leftRocker.setWindwoManager(windowManager);
             rightRocker.setWindwoManager(windowManager);
 
-            /*leftRocker.startListen();
-            rightRocker.startListen();*/
+            leftRocker.startListen();
+            rightRocker.startListen();
         }, 500);
 
         /*leftRocker.setCallback((verticalValue, horizontalValue) -> {
@@ -148,15 +148,15 @@ public class ControlActivity extends Activity {
         }));*/
     }
 
-   /* public void initBluetooth(){
+   public void initBluetooth(){
         BluetoothManager bluetoothManager= (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
 
         if(binder != null) {
             binder.InitBluetooth(this, bluetoothManager);
         }
-    }*/
+    }
 
-    /*public void setBarValue(Channel channel_1, Channel channel_2, int whitch){
+    public void setBarValue(Channel channel_1, Channel channel_2, int whitch){
         int value_1 = channel_1.getValue() - 1000;
         int value_2 = channel_2.getValue() - 1000;
 
@@ -174,5 +174,5 @@ public class ControlActivity extends Activity {
         for(ProgressBar bar : bars){
             bar.setMax(1000);
         }
-    }*/
+    }
 }
